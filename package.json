@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "stylelint-fix": "stylelint \"src/**/*.less\" --fix",
+    "stylelint": "stylelint \"src/**/*.less\" --syntax less",
+    "lint-fix": "eslint --fix tests src ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx'",
+    "lint": "npm run lint:es && npm run lint:demo",
+    "lint:es": "eslint tests src ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx'",
+    "lint:demo": "cross-env RUN_ENV=DEMO eslint src/*/demo/*.md --ext '.md'"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +20,8 @@
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-babel": "^5.0.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "6.1.1"
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "stylelint": "^9.4.0",
+    "stylelint-config-standard": "^18.2.0"
   }
 }
